@@ -1,15 +1,39 @@
 
 #ifndef MAIN_H
 #define MAIN_H
-#define BUFF_SIZE 1024
 #include<stdio.h>
 #include<stdarg.h>
 #include<unistd.h>
 
+#define BUFFER_SIZE 1024
 
 int _putchar(char c);
-int printChar(va_list args);
+/*print functions*/
+int printChar(va_list args, __attribute__((unused)) int flags,
+__attribute__((unused)) int width,
+__attribute__((unused)) int precision, __attribute__((unused)) int size);
+
+int printString(__attribute__((unused)) va_list args,
+__attribute__((unused)) int flags, __attribute__((unused)) int width,
+__attribute__((unused)) int precision, __attribute__((unused)) int size);
+
+int printPercent(__attribute__((unused)) va_list args,
+__attribute__((unused)) int flags, __attribute__((unused)) int width,
+__attribute__((unused)) int precision, __attribute__((unused)) int size);
+
+int printBinary(va_list args,
+__attribute__((unused)) int flags, __attribute__((unused)) int width,
+__attribute__((unused)) int precision, __attribute__((unused)) int size);
+
+/**/
+
+int PrintBySpecifier(const char *fmt, int LastFormatIndex, va_list args,
+__attribute__((unused)) int flags, __attribute__((unused)) int width,
+__attribute__((unused)) int precision, __attribute__((unused)) int size);
+
+int printBuffer(char buffer[], int currentIndex);
 int _printf(const char *format, ...);
+
 
 
 
