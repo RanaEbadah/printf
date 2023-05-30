@@ -23,7 +23,6 @@ int _putchar(char c)
 *Return: int 1 in success 0 in fail
 *
 */
-
 int printChar(va_list args, __attribute__((unused)) int flags,
 __attribute__((unused)) int width,
 __attribute__((unused)) int precision, __attribute__((unused)) int size)

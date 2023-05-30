@@ -32,17 +32,17 @@ int _printf(const char *format, ...)
 
 			if (buffCurrentIndex == BUFFER_SIZE - 1)
 			{
-				/*go to print the buffer content because it
-				is full and start again to fill it*/
+				/**
+				*go to print the buffer content because it
+				*is full and start again to fill it
+				*/
 				if ((printBuffer(buffer, buffCurrentIndex)) <= 0)
 				return (-1);
 
 				/*set buffCurrentIndex by zero th start filling the buffer again*/
 				buffCurrentIndex = 0;
 			}
-
 			printedChars++;
-
 		}
 		else
 		{
@@ -53,15 +53,13 @@ int _printf(const char *format, ...)
 				if ((printBuffer(buffer, buffCurrentIndex)) <= 0)
 				return (-1);
 			}
-
 			/*we will call the speceifier functions here*/
-			printed = PrintBySpecifier(format, i + 1, args, flags, width, precession, size);
+			printed = PrintBySpecifier(format, i + 1, args,
+			flags, width, precession, size);
 			if (printed <= 0)
 			return (-1);
-
 			printedChars += printed;
 			i++;
-
 			/*set buffCurrentIndex by zero th start filling the buffer again*/
 			buffCurrentIndex = 0;
 
@@ -89,6 +87,7 @@ int _printf(const char *format, ...)
 int printBuffer(char buffer[], int bufferLastIndex)
 {
 	int i;
+
 	if (bufferLastIndex > 0)
 	{
 
@@ -118,10 +117,8 @@ int PrintBySpecifier(const char *fmt, int LastFormatIndex, va_list args,
 __attribute__((unused)) int flags, __attribute__((unused)) int width,
 __attribute__((unused)) int precision, __attribute__((unused)) int size)
 {
-	/*char specifier[] = {'c', 's', '%', 'b', '\0'};
-	int (*printFun[]) (va_list, int, int, int, int) = {&printChar, &printString,
-	&printPercent, &printBinary, NULL};*/
-	char specifier[] = {'c', 's', '%', 'b', 'd', 'i', '\0'};
+
+	char specifier[] = {'c', 's', '%', 'b', '\0'};
 	int (*printFun[]) (va_list, int, int, int, int) = {&printChar, &printString,
 	&printPercent, &printBinary, NULL};
 	int i;
