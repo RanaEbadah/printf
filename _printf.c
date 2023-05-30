@@ -120,7 +120,7 @@ __attribute__((unused)) int precision, __attribute__((unused)) int size)
 {
 	char specifier[] = {'c', 's', '%', 'b', '\0'};
 	int (*printFun[]) (va_list, int, int, int, int) = {&printChar, &printString,
-	printPercent, printBinary, NULL};
+	&printPercent, &printBinary, NULL};
 	int i;
 
 	for (i = 0; specifier[i] != '\0'; i++)
