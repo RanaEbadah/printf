@@ -56,7 +56,7 @@ int _printf(const char *format, ...)
 			/*we will call the speceifier functions here*/
 			printed = PrintBySpecifier(format, i + 1, args,
 			flags, width, precession, size);
-			if (printed < 0)
+			if (printed <= 0)
 			return (-1);
 			printedChars += printed;
 			i++;
@@ -74,7 +74,6 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
-	_putchar('\n');
 	return (printedChars);
 
 }
