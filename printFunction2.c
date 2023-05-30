@@ -36,7 +36,7 @@ if (Long_Num < 0)
 
 while (uns_long_Num > 0)
 {
-    check[--i] = (uns_long_Num % 10) + '0';
+    buff[--i] = (uns_long_Num % 10) + '0';
     uns_long_Num /= 10;
 }
 i++;
