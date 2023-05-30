@@ -1,5 +1,5 @@
 #include "main.h"
-// PRINT DECIMAL & INTEGER NUMBERS //
+/* PRINT DECIMAL & INTEGER NUMBERS */
 
 /**
 *printInteger - print integer numbers
@@ -14,7 +14,7 @@ int printInteger(va_list args,__attribute__((unused)) int flags,
  __attribute__((unused)) int width,
 __attribute__((unused)) int precision, int size, char buff[])
 {
-int i = BUFFER_SIZE - 2;      // Max condition
+int i = BUFFER_SIZE - 2;      /* Max condition */
 int Negative_Num = 0;
 long int Long_Num = va_arg(args, long int);
 unsigned long int uns_long_Num; 
@@ -41,12 +41,12 @@ while (uns_long_Num > 0)
 }
 i++;
 
-return (write(1, &buff, 1));
+return (Negative_Num);
 
 }
 
 
-// ASSIGNED A VLAUE NUMBER ACCORDING TO THE SPECIFIED SIZE //
+/* ASSIGNED A VLAUE NUMBER ACCORDING TO THE SPECIFIED SIZE */
 
 /** 
  *assign - push number to specified size
