@@ -56,13 +56,12 @@ int _printf(const char *format, ...)
 			/*we will call the speceifier functions here*/
 			printed = PrintBySpecifier(format, i + 1, args,
 			flags, width, precession, size);
-			if (printed <= 0)
+			if (printed < 0)
 			return (-1);
 			printedChars += printed;
 			i++;
 			/*set buffCurrentIndex by zero th start filling the buffer again*/
 			buffCurrentIndex = 0;
-
 		}
 		i++;
 	}
@@ -75,6 +74,7 @@ int _printf(const char *format, ...)
 	}
 
 	va_end(args);
+	_putchar('\n');
 	return (printedChars);
 
 }
@@ -118,9 +118,9 @@ __attribute__((unused)) int flags, __attribute__((unused)) int width,
 __attribute__((unused)) int precision, __attribute__((unused)) int size)
 {
 
-	char specifier[] = {'c', 's', '%', 'b', '\0'};
+	char specifier[] = {'c', 's', '%', 'b', 'd', 'i', '\0'};
 	int (*printFun[]) (va_list, int, int, int, int) = {&printChar, &printString,
-	&printPercent, &printBinary, NULL};
+	&printPercent, &printBinary, &printInt, &printInt, NULL};
 	int i;
 
 	for (i = 0; specifier[i] != '\0'; i++)

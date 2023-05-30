@@ -4,10 +4,15 @@
 #include<stdio.h>
 #include<stdarg.h>
 #include<unistd.h>
+#include<string.h>
+#include<limits.h>
+#include<math.h>
 
 #define BUFFER_SIZE 1024
 
 int _putchar(char c);
+
+
 /*print functions*/
 /**
 *printChar - print character.
@@ -60,6 +65,11 @@ __attribute__((unused)) int precision, __attribute__((unused)) int size);
 long int assign(long int Long_Num, int size);
 
 int printBinary(va_list args,
+__attribute__((unused)) int flags, __attribute__((unused)) int width,
+__attribute__((unused)) int precision, __attribute__((unused)) int size);
+
+
+int printInt(va_list args,
 __attribute__((unused)) int flags, __attribute__((unused)) int width,
 __attribute__((unused)) int precision, __attribute__((unused)) int size);
 
