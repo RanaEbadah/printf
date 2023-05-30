@@ -55,4 +55,4 @@ __attribute__((unused)) int precision, __attribute__((unused)) int size)
 		printedNumbers = printedNumbers + write(1, &numBuffer[--i], 1);
 	}
 	return (printedNumbers);
-}
+
