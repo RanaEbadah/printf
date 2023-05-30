@@ -29,10 +29,10 @@ __attribute__((unused)) int precision, __attribute__((unused)) int size)
 {
 	char numBuffer[20];
 	int i, number, printedNumbers = 0;
-	
+
 	number = va_arg(args, int);
-	
-	if(number < 0)
+
+	if (number < 0)
 	{
 		_putchar('-');
 		printedNumbers++;
@@ -41,7 +41,7 @@ __attribute__((unused)) int precision, __attribute__((unused)) int size)
 
 	if (number == 0)
 	{
-		return(_putchar('0'));
+		return (_putchar('0'));
 	}
 
 	for (i = 0; number > 0; i++)
