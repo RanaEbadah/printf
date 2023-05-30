@@ -118,9 +118,12 @@ int PrintBySpecifier(const char *fmt, int LastFormatIndex, va_list args,
 __attribute__((unused)) int flags, __attribute__((unused)) int width,
 __attribute__((unused)) int precision, __attribute__((unused)) int size)
 {
-	char specifier[] = {'c', 's', '%','b','\0', 'd', 'i'};
-	int (*printFun[]) (va_list, int, int, int, int, int, int) = {&printChar, &printString,
-	printPercent, printBinary, NULL, printInteger, printInteger};
+	/*char specifier[] = {'c', 's', '%', 'b', '\0'};
+	int (*printFun[]) (va_list, int, int, int, int) = {&printChar, &printString,
+	&printPercent, &printBinary, NULL};*/
+	char specifier[] = {'c', 's', '%', 'b', 'd', 'i', '\0'};
+	int (*printFun[]) (va_list, int, int, int, int) = {&printChar, &printString,
+	&printPercent, &printBinary, NULL};
 	int i;
 
 	for (i = 0; specifier[i] != '\0'; i++)
